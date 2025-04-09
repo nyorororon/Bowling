@@ -1,0 +1,485 @@
+/*
+Theme Name: Ashe Child
+Theme URI: https://wp-royal-themes.com/themes/item-ashe-free/
+Template: ashe
+Author: WP Royal
+Author URI: https://wp-royal-themes.com/
+Description: Personal and Multi-Author Free WordPress Blog Theme. Perfect for personal, lifestyle, health &amp; fitness, food, cooking, bakery, travel, beauty, fashion, wedding, photography, news, quotes blog, auto blog, small business website and any other kind of amazing blogs. Minimal, elegant &amp; mobile friendly layout with WooCommerce shop (storefront) support will WOW and inspire your visitors. Well documented and very easy to use even for WordPress beginners. Clean and Modern Responsive design will perfectly showcase your content on any device, even on tablet, mobile &amp; retina displays. Very fast, compatibility with many popular plugins &amp; of course translation &amp; RTL (right to left language) ready, coded with best SEO practices. The theme has features like Text &amp; Image logo, Fullscreen Slider, Header image, Instagram slider widget support, footer menu support, GDPR compatibility plugins support and many more. Works perfectly with all major drag and drop page builders like Elementor, Beaver Builder, Visual Composer, SiteOrigin, Divi. You just need to write and be awesome! TEMPLATE DEMO: https://ashe-free.wp-royal-themes.com/demo/
+Tags: blog,e-commerce,food-and-drink,one-column,two-columns,three-columns,left-sidebar,right-sidebar,custom-background,custom-colors,custom-header,flexible-header,full-width-template,custom-menu,custom-logo,featured-images,footer-widgets,rtl-language-support,sticky-post,theme-options,threaded-comments,translation-ready
+Version: 2.253.1743557644
+Updated: 2025-04-02 01:34:04
+
+*/
+
+/* toppageのみcssを有効にするためのカスタム */
+
+.page-id-142 img.attachment-woocommerce_thumbnail {
+  display: none !important;
+}
+
+.page-id-142 .price {
+  display: none !important;
+}
+
+.custom-product-block {
+  background-color: #eef6fc;
+  border: 2px solid #2B79C9;
+  border-radius: 10px;
+  padding: 1.5em;
+  font-family: 'Noto Sans JP', sans-serif;
+  color: #222;
+  max-width: 540px;
+}
+
+/* 日付＋時間 */
+.custom-product-block-row-top {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  flex-wrap: wrap;
+  font-size: 1rem;
+  font-weight: normal;
+  margin-bottom: 1em;
+}
+
+.custom-product-date-label {
+  font-weight: 600;
+  color: #222;
+}
+
+.custom-product-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 0;
+  padding: 0;
+  color: #222;
+}
+
+.custom-product-description {
+  font-size: 1.1rem;
+  white-space: nowrap;
+  color: #222;
+}
+
+/* 定員・残り・予約ボタン */
+.custom-product-block-row-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  font-size: 1.1rem;
+  font-weight: 600;
+  gap: 1em;
+}
+
+.custom-product-short-description,
+.custom-product-capacity {
+  margin: 0;
+  color: #222;
+}
+
+.custom-product-button {
+  flex-shrink: 0;
+}
+
+.custom-product-button .button {
+  background-color: #2B79C9;
+  color: #ffffff;
+  padding: 0.6em 1.6em;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 20px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.custom-product-button .button:hover {
+  background-color: #1e5fa3;
+}
+
+
+/* ページフッターカスタムのため追加日向20250405 */
+
+#page-footer {
+  background-color: #1C63AF !important;
+  color: #FFFFFF !important;
+  font-weight: bold;
+}
+
+.footer-copyright {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center !important;
+  padding: 20px 10px;
+}
+
+.footer-copyright .copyright-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-copyright .copyright-info img {
+  display: block;
+  margin: 0 auto 10px auto;
+  height: 60px;
+}
+
+.footer-copyright a {
+  color: #FFFFFF !important;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.footer-copyright .credit {
+  display: none !important;
+}
+
+
+/* ハンバーガーメニューアイコン変更のため日向追加20250405 */
+.main-nav-sidebar {
+  width: 293px !important;
+  height: 60px !important;
+  background-image: url('https://boring.united-sd.com/wp-content/uploads/2025/04/pge-select2.png');
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+  cursor: pointer;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* メニュー最上部に画像を追加 */
+.sidebar-alt::before {
+  content: '';
+  display: block;
+  width: 180px;
+  height: 50px;
+  margin: 20px auto 10px auto;
+  background-image: url('https://boring.united-sd.com/wp-content/uploads/2025/04/pge-select2.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* 疑似要素の削除 */
+.main-nav-sidebar::before {
+  content: none !important;
+}
+
+/* 元のハンバーガーアイコン非表示 */
+.main-nav-sidebar > div {
+  display: none !important;
+}
+
+
+/* main-nav変更のため追加日向20250405 */
+.main-nav-icons {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 25px;
+  height: 60px;
+}
+
+.main-nav-icons > div {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.main-nav-icons i {
+  font-size: 20px;
+  line-height: 1;
+  color: #000;
+}
+.dark-mode-switcher {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px; 
+  line-height: 60px;
+  margin: 0 10px; 
+}
+
+.dark-mode-switcher i {
+  font-size: 18px; 
+  vertical-align: middle;
+}
+
+.main-nav-cart a {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  color: #000;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.main-nav-cart a:hover {
+  opacity: 0.8;
+}
+
+
+/* カートレイアウトのため追加日向20250405 */
+
+h1.page-title {
+  font-weight: bold;
+  font-family: "Noto Sans JP", sans-serif;
+}
+
+a.back-to-home-button {
+  display: inline-block;
+  background-color: #1C63AF;
+  color: #fff;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  margin-bottom: 20px;
+}
+a.back-to-home-button:hover {
+  background-color: #15518c;
+}
+
+.woocommerce-cart .woocommerce-cart-form {
+  background-color: #f4f9ff;
+  border: 1px solid #cce0f5;
+  border-radius: 10px;
+  padding: 20px;
+  overflow: hidden;
+  font-family: "Noto Sans JP", sans-serif;
+}
+
+.woocommerce-cart table.shop_table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #ffffff;
+  color: #1C63AF;
+  font-family: "Noto Sans JP", sans-serif;
+}
+.woocommerce-cart table.shop_table th,
+.woocommerce-cart table.shop_table td {
+  border: 1px solid #cce0f5;
+  padding: 12px;
+  text-align: center;
+}
+.woocommerce-cart table.shop_table th {
+  background-color: #e1ecf9;
+  font-weight: bold;
+}
+
+.woocommerce-cart .product-name a {
+  color: #1C63AF;
+  font-weight: bold;
+}
+.woocommerce-cart .product-name a:hover {
+  text-decoration: underline;
+}
+
+.woocommerce-cart .quantity input {
+  width: 60px;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.woocommerce-cart .actions .button {
+  background-color: #1C63AF !important;
+  color: #fff !important;
+  padding: 8px 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.woocommerce-cart .actions .button:hover {
+  background-color: #15518c !important;
+}
+
+.woocommerce-cart .cart_totals {
+  background-color: #f4f9ff;
+  border: 1px solid #cce0f5;
+  padding: 20px;
+  border-radius: 10px;
+  font-family: "Noto Sans JP", sans-serif;
+  margin-top: 30px;
+}
+.woocommerce-cart .cart_totals h2 {
+  color: #1C63AF;
+  font-weight: bold;
+}
+.woocommerce-cart .cart_totals table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.woocommerce-cart .cart_totals th,
+.woocommerce-cart .cart_totals td {
+  padding: 10px;
+  border-bottom: 1px solid #cce0f5;
+}
+
+.woocommerce-cart .checkout-button {
+  background-color: #1C63AF !important;
+  color: #fff !important;
+  padding: 12px 20px;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  display: inline-block;
+  text-align: center;
+}
+.woocommerce-cart .checkout-button:hover {
+  background-color: #15518c !important;
+}
+
+/* 空のカートページ：メッセージとボタンのカスタム */
+.woocommerce .cart-empty {
+  background-color: #f4f9ff;
+  border: 1px solid #cce0f5;
+  border-radius: 10px;
+  padding: 30px;
+  font-family: "Noto Sans JP", sans-serif;
+  text-align: center;
+  color: #1C63AF;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.woocommerce .return-to-shop a.button.wc-backward {
+  display: inline-block;
+  background-color: #1C63AF;
+  color: #fff;
+  font-weight: bold;
+  padding: 12px 24px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.woocommerce .return-to-shop a.button.wc-backward:hover {
+  background-color: #15518c;
+}
+
+/* チェックアウトページのカスタム20250407日向追加 */
+
+h1.page-title {
+  font-weight: bold;
+  font-family: "Noto Sans JP", sans-serif;
+}
+
+.woocommerce-checkout .woocommerce-billing-fields,
+.woocommerce-checkout .woocommerce-additional-fields {
+  background-color: #f4f9ff;
+  border: 1px solid #cce0f5;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  font-family: "Noto Sans JP", sans-serif;
+}
+
+.woocommerce-checkout .woocommerce-additional-fields h3 {
+  display: none;
+}
+
+.woocommerce-checkout .woocommerce-billing-fields label,
+.woocommerce-checkout .woocommerce-additional-fields label {
+  font-weight: bold;
+  color: #1C63AF;
+  font-size: 14px;
+  margin-bottom: 4px;
+  display: inline-block;
+}
+
+.woocommerce-checkout input,
+.woocommerce-checkout select,
+.woocommerce-checkout textarea {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 10px;
+  margin-bottom: 15px;
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 14px;
+}
+
+.woocommerce-checkout #order_review {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.woocommerce-checkout .woocommerce-checkout-review-order-table {
+  flex: 1;
+  min-width: 300px;
+  border: 1px solid #cce0f5;
+  border-radius: 10px;
+  background-color: #fff;
+  font-family: "Noto Sans JP", sans-serif;
+}
+
+.woocommerce-checkout .woocommerce-checkout-review-order-table th,
+.woocommerce-checkout .woocommerce-checkout-review-order-table td {
+  border: 1px solid #cce0f5;
+  padding: 10px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.woocommerce-checkout .woocommerce-checkout-review-order-table th {
+  background-color: #e1ecf9;
+  color: #1C63AF;
+  font-weight: bold;
+}
+
+.woocommerce-checkout .woocommerce-checkout-payment {
+  flex: 1;
+  min-width: 300px;
+  border: 1px solid #cce0f5;
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.woocommerce-checkout #place_order {
+  background-color: #1C63AF !important;
+  color: #fff !important;
+  padding: 12px 24px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  display: inline-block;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.woocommerce-checkout #place_order:hover {
+  background-color: #15518c !important;
+}
+
+/* 
+.woocommerce-additional-fields:empty,
+.woocommerce-additional-fields__field-wrapper:empty,
+.woocommerce-additional-fields:has(.woocommerce-additional-fields__field-wrapper:empty) {
+  display: none !important;
+  height: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: none !important;
+} */
+
+
+/* フレックス修正（スマホ対応） */
+@media screen and (max-width: 768px) {
+  .woocommerce-checkout #order_review {
+    flex-direction: column;
+  }
+}
