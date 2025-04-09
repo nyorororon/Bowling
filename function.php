@@ -2,7 +2,7 @@
 /**
  * Ashe Child Theme functions and definitions
  *
- * @package Ashe
+ * @package Asheほお
  */
 
 function ashe_child_enqueue_styles() {
