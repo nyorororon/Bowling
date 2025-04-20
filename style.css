@@ -98,6 +98,36 @@ Updated: 2025-04-02 01:34:04
   background-color: #1e5fa3;
 }
 
+@media screen and (max-width: 767px) {
+  .custom-product-block-row-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5em;
+  }
+
+  .custom-product-short-description,
+  .custom-product-capacity,
+  .custom-product-button {
+    width: 100%;
+  }
+
+  .custom-product-short-description p,
+  .custom-product-capacity p {
+    margin: 0;
+  }
+
+  .custom-product-button {
+    display: flex;
+    justify-content: center;
+    margin-top: 0.5em;
+  }
+
+  .custom-product-button .button {
+    width: 100%;
+    text-align: center;
+  }
+}
+
 
 /* ページフッターカスタムのため追加日向20250405 */
 
@@ -223,6 +253,16 @@ Updated: 2025-04-02 01:34:04
 
 .main-nav-cart a:hover {
   opacity: 0.8;
+}
+
+@media screen and (max-width: 768px) {
+  .main-nav-sidebar {
+    width: 140px !important;
+    max-width: 150px;
+    height: 50px; /* 高さもモバイルに最適化する場合ここで調整 */
+    background-size: contain !important;
+    background-position: center center !important;
+  }
 }
 
 
@@ -465,21 +505,189 @@ h1.page-title {
   background-color: #15518c !important;
 }
 
-/* 
-.woocommerce-additional-fields:empty,
-.woocommerce-additional-fields__field-wrapper:empty,
-.woocommerce-additional-fields:has(.woocommerce-additional-fields__field-wrapper:empty) {
-  display: none !important;
-  height: 0 !important;
-  padding: 0 !important;
-  margin: 0 !important;
-  border: none !important;
-} */
-
 
 /* フレックス修正（スマホ対応） */
 @media screen and (max-width: 768px) {
   .woocommerce-checkout #order_review {
     flex-direction: column;
+  }
+}
+
+
+/* モバイル時ヘッダー表示の追記日向20250410 */
+/* === モバイル用ヘッダー画像表示（Ashe対応）=== */
+@media screen and (max-width: 767px) {
+  .entry-header {
+    position: relative;
+    min-height: 272px;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+  }
+
+  /* デフォルトロゴ/テキスト完全非表示 */
+  .entry-header .cv-outer,
+  .entry-header .cv-inner,
+  .entry-header .header-logo,
+  .entry-header h1,
+  .entry-header .site-description {
+    display: none !important;
+    height: 0 !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* モバイル専用ヘッダー画像 */
+@media screen and (max-width: 767px) {
+  .entry-header {
+    background-image: url('https://boring.united-sd.com/wp-content/uploads/2025/04/ボーリング_ヘッダー_モバイル.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 272px;
+    padding: 0 !important;
+    margin: 0 !important;
+    position: relative;
+    z-index: 1;
+  }
+
+  .entry-header .cv-outer,
+  .entry-header .cv-inner,
+  .entry-header .header-logo,
+  .entry-header h1,
+  .entry-header .site-description {
+    display: none !important;
+  }
+}
+
+.woocommerce-additional-fields #order_comments_field {
+  display: none !important;
+}
+
+/* メインナビ変更に伴って追記日向 */
+.main-nav-icons .main-nav-home,
+.main-nav-icons .main-nav-cart {
+  display: flex;
+  align-items: center;
+  margin-left: 15px;
+}
+
+.main-nav-icons i {
+  font-size: 18px;
+  margin-right: 5px;
+}
+
+.main-nav-label {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+/* 予約完了画面カスタムのため追記日向20250411 */
+/* ---------------------
+   WooCommerce Thank You Page Styling
+--------------------- */
+body.woocommerce-order-received {
+  background-color: #fdf6ec;
+  font-family: "Noto Sans JP", sans-serif;
+}
+
+/* メインボックス */
+.woocommerce-order {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px 20px;
+  background-color: #fff;
+  border: 4px solid #fae3b1;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+/* 注文完了メッセージ */
+.woocommerce-thankyou-order-received {
+  background-color: #ffe9c5;
+  border-left: 8px solid #ffb347;
+  padding: 20px;
+  margin-bottom: 30px;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #a14a00;
+}
+
+/* 概要 */
+.woocommerce-order-overview {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+  list-style: none;
+  padding: 0;
+}
+
+.woocommerce-order-overview li {
+  background: #fefefe;
+  border: 1px dashed #ccc;
+  border-radius: 10px;
+  padding: 15px;
+  font-size: 0.95rem;
+}
+
+.woocommerce-order-overview strong {
+  display: block;
+  font-size: 1.1rem;
+  color: #222;
+  margin-top: 5px;
+}
+
+/* 注文詳細テーブル */
+.woocommerce-order-details,
+.woocommerce-customer-details {
+  margin-top: 40px;
+}
+
+.woocommerce-order-details__title,
+.woocommerce-column__title {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  color: #333;
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 5px;
+}
+
+.woocommerce-table--order-details th,
+.woocommerce-table--order-details td {
+  border: 1px solid #e2e2e2;
+  padding: 12px;
+  font-size: 1rem;
+  text-align: left;
+}
+
+.woocommerce-table--order-details tfoot {
+  background-color: #f9f9f9;
+}
+
+.woocommerce-customer-details address {
+  font-style: normal;
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 6px;
+  border: 1px solid #e2e2e2;
+  line-height: 1.6;
+}
+
+/* モバイル対応 */
+@media screen and (max-width: 768px) {
+  .woocommerce-order {
+    padding: 20px 15px;
+  }
+
+  .woocommerce-order-overview {
+    grid-template-columns: 1fr;
+  }
+
+  .woocommerce-table--order-details th,
+  .woocommerce-table--order-details td {
+    font-size: 0.95rem;
   }
 }
