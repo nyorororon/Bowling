@@ -77,6 +77,7 @@ function add_back_to_home_button() {
 
 
 // チェックアウトページ「その他リクエスト」項目の削除
+/*
 add_action('wp_footer', function () {
     if (is_checkout()) {
         ?>
@@ -91,6 +92,7 @@ add_action('wp_footer', function () {
         <?php
     }
 });
+*/
 
 
 // ユーザー
@@ -166,6 +168,7 @@ add_action('wp_footer', function () {
     }
 });
 
+/*
 // .woocommerce-additional-fieldsに表示されてしまうオプション非表示のため追記日向
 
 add_action('wp_footer', function () {
@@ -185,7 +188,7 @@ add_action('wp_footer', function () {
         <?php
     }
 });
-
+*/
 
 
 // 姓名順番入れ替えのため追記日向20250410
@@ -274,12 +277,47 @@ add_action('wp_footer', function () {
 });
 
 // 予約完了画面固定ページ名カスタム追記日向
+// タイトルを変更（今のままでOK）
 add_filter('the_title', function($title, $id) {
     if (is_order_received_page() && get_post_type($id) === 'page' && is_main_query()) {
         return '予約完了いたしました。';
     }
     return $title;
 }, 10, 2);
+
+// 下部に案内メッセージも追加（こちらが本文）
+// 購入完了メッセージ直下に案内文を表示
+add_action('woocommerce_before_thankyou', function($order_id) {
+    echo '<div class="custom-thankyou-message" style="margin-top: 1.5em; padding: 1.5em; background-color: #f0f4f9; border-left: 4px solid #2B79C9;">';
+    echo '<p>登録されたメールアドレス宛に、予約完了の確認メールをお送りしております。</p>';
+    echo '<p>まれに、お客様のメール設定（迷惑メールフォルダ等）により、メールが届かない場合があります。</p>';
+    echo '<p>ただし、この画面が表示されていれば予約は正常に完了しておりますのでご安心ください。</p>';
+    echo '<p>万一メールが届かない場合は、ボウリング場までお電話にてご確認くださいますようお願いいたします。</p>';
+    echo '</div>';
+});
+
+
+// ありがとうございました。ご注文を受け付けました。を非表示にする。
+
+add_action('woocommerce_before_thankyou', function() {
+    if (is_order_received_page()) {
+        echo '<style>.woocommerce-thankyou-order-received { display: none !important; }</style>';
+        echo '<div style="height: 1.5em;"></div>'; // ← 空白のスペース行（高さ調整）
+    }
+});
+
+// 再注文ボタンを非表示にする。
+add_action('wp_head', function () {
+    if (is_order_received_page()) {
+        echo '<style>
+        .woocommerce-order-receipt .order-again,
+        .woocommerce-order-received .order-again {
+            display: none !important;
+        }
+        </style>';
+    }
+});
+
 
 // 新しい注文時、商品投稿者にメール通知を送る（商品ごとに異なる投稿者対応）日向追記
 add_filter('woocommerce_email_recipient_new_order', 'custom_email_to_product_author_only', 10, 2);
@@ -334,5 +372,24 @@ function custom_customize_billing_fields( $fields ) {
         'custom_attributes' => array( 'readonly' => 'readonly' )
     );
 
+    return $fields;
+}
+
+
+
+add_filter( 'woocommerce_checkout_fields', 'move_order_comments_to_billing_section' );
+function move_order_comments_to_billing_section( $fields ) {
+    if ( isset( $fields['order']['order_comments'] ) ) {
+        // 備考欄の内容を取得
+        $order_comments = $fields['order']['order_comments'];
+
+        // セクションを billing に変更し、優先順位をメールアドレスの後に設定
+        $fields['billing']['order_comments'] = array_merge( $order_comments, array(
+            'priority' => 125, // メールアドレスが120なので、その下に表示される
+        ) );
+
+        // 元の位置から削除
+        unset( $fields['order']['order_comments'] );
+    }
     return $fields;
 }
